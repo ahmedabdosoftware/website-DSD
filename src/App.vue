@@ -1,11 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
-</template>
+   <Header  v-if="showHeader"></Header>
+   <router-view class="view"/>
+  </template>
+<script>
+import Header from "../src/components/global/Header.vue";
+//import FooterStore from "@/components/global/FooterStore.vue";
 
+export default {
+  name: "App",
+  components: {
+    Header,
+    //FooterStore
+  },
+  computed: {
+    showHeader() {
+      return this.$store.state.showHeader;
+    }
+  }
+  // computed: {
+  //   getDarkMode() {
+  //     return this.$store.state.darkMode;
+  //   },
+  // },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,16 +33,4 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
