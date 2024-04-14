@@ -17,9 +17,9 @@
       <div v-if="trackAllData && trackAllData.trip" class="content">
        
         <div  v-if="trackAllData.activities && trackAllData.activities.length > 0">
-            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 1"> حالة الشحنة: تم استلام الشحنة في فرع </p>
-            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 2"> حالة الشحنة : تم مغادرة الشحنة من فرع     </p>
-            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 3"> حالة الشحنة : تم وصول الشحنة إلى فرع     </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 1"> حالة الشحنة: تم استلام الشحنة في فرع  <span class="dis">{{ trackAllData.trip.line.source.city.name}}</span></p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 2"> حالة الشحنة : تم مغادرة الشحنة من فرع <span class="dis">{{ trackAllData.trip.line.source.city.name}}</span>    </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 3"> حالة الشحنة : تم وصول الشحنة إلى فرع  <span class="dis">{{ trackAllData.trip.line.destination.city.name}}</span>   </p>
             <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 4"> حالة الشحنة :الشحنة في الطريق للمستلم  </p>
             <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 5"> حالة الشحنة : تم تسليم الشحنة بنجاح     </p>
             <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 6"> حالة الشحنة : فشل تسليم الشحنة - عادت إلى المستودع </p>
@@ -40,28 +40,28 @@
         <div>
           
           <div v-if="trackAllData.activities[2]">
-            <p v-if="trackAllData.activities[2].state == 3">تم وصول الشحنة إلى فرع     </p>
+            <p v-if="trackAllData.activities[2].state == 3">تم وصول الشحنة إلى فرع  <span class="dis">{{ trackAllData.trip.line.destination.city.name}}</span>   </p>
             <p v-if="trackAllData.activities[2].state == 4">الشحنة في الطريق للمستلم     </p>
             <p v-if="trackAllData.activities[2].state == 5">  تم تسليم الشحنة بنجاح   </p>
             <p v-if="trackAllData.activities[2].state == 6">  فشل تسليم الشحنة - عادت إلى المستودع   </p>
-            <p>{{ trackAllData.activities[2].date }}</p>
+            <p>{{ new Date(trackAllData.activities[2].date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) }}</p>
           </div>
           <div v-if="trackAllData.activities[1]">
-            <p v-if="trackAllData.activities[1].state == 2">تم مغادرة الشحنة من فرع   </p>
-            <p v-if="trackAllData.activities[1].state == 3">تم وصول الشحنة إلى فرع     </p>
+            <p v-if="trackAllData.activities[1].state == 2">تم مغادرة الشحنة من فرع   <span class="dis">{{ trackAllData.trip.line.source.city.name}}</span></p>
+            <p v-if="trackAllData.activities[1].state == 3">تم وصول الشحنة إلى فرع   <span class="dis">{{ trackAllData.trip.line.destination.city.name}}</span>  </p>
             <p v-if="trackAllData.activities[1].state == 4">  الشحنة في الطريق للمستلم   </p>
             <p v-if="trackAllData.activities[1].state == 5">تم تسليم الشحنة بنجاح     </p>
             <p v-if="trackAllData.activities[1].state == 6">فشل تسليم الشحنة - عادت إلى المستودع</p>
-            <p>{{ trackAllData.activities[1].date }}</p>
+            <p>{{ new Date(trackAllData.activities[1].date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) }}</p>
           </div>
           <div v-if="trackAllData.activities[0]">
-            <p v-if="trackAllData.activities[0].state == 1"> تم استلام الشحنة في فرع </p>
-            <p v-if="trackAllData.activities[0].state == 2"> تم مغادرة الشحنة من فرع     </p>
-            <p v-if="trackAllData.activities[0].state == 3"> تم وصول الشحنة إلى فرع     </p>
+            <p v-if="trackAllData.activities[0].state == 1"> تم استلام الشحنة في فرع <span class="dis">{{ trackAllData.trip.line.source.city.name}}</span></p>
+            <p v-if="trackAllData.activities[0].state == 2"> تم مغادرة الشحنة من فرع    <span class="dis">{{ trackAllData.trip.line.source.city.name}}</span> </p>
+            <p v-if="trackAllData.activities[0].state == 3"> تم وصول الشحنة إلى فرع  <span class="dis">{{ trackAllData.trip.line.destination.city.name}}</span>   </p>
             <p v-if="trackAllData.activities[0].state == 4"> الشحنة في الطريق للمستلم  </p>
             <p v-if="trackAllData.activities[0].state == 5"> تم تسليم الشحنة بنجاح     </p>
             <p v-if="trackAllData.activities[0].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع </p>
-            <p>{{ trackAllData.activities[0].date }}</p>
+            <p>{{ new Date(trackAllData.activities[0].date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) }}</p>
           </div>
 
         </div>
@@ -71,13 +71,13 @@
           <div v-if="trackAllData.activities[4]">
             <p v-if="trackAllData.activities[4].state == 5">  تم تسليم الشحنة بنجاح </p>
             <p v-if="trackAllData.activities[4].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع  </p>
-            <p>11/02/2024 2:30 pm</p>  
+            <p>{{ new Date(trackAllData.activities[4].date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) }}</p>  
           </div>
           <div v-if="trackAllData.activities[3]">
             <p v-if="trackAllData.activities[3].state == 4"> الشحنة في الطريق للمستلم</p>
             <p v-if="trackAllData.activities[3].state == 5">تم تسليم الشحنة بنجاح </p>
             <p v-if="trackAllData.activities[3].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع  </p>
-            <p>{{ trackAllData.activities[3].date }}</p>
+            <p>{{ new Date(trackAllData.activities[3].date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) }}</p>
           </div>
 
         </div>
