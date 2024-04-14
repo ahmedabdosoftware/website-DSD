@@ -15,9 +15,15 @@
 
 
       <div v-if="trackAllData && trackAllData.trip" class="content">
-        <div>
-            <p>حالة الشحنة : تم توصيل الشحنة بنجاح</p>
-        </div>
+       
+        <div  v-if="trackAllData.activities && trackAllData.activities.length > 0">
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 1"> حالة الشحنة: تم استلام الشحنة في فرع </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 2"> حالة الشحنة : تم مغادرة الشحنة من فرع     </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 3"> حالة الشحنة : تم وصول الشحنة إلى فرع     </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 4"> حالة الشحنة :الشحنة في الطريق للمستلم  </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 5"> حالة الشحنة : تم تسليم الشحنة بنجاح     </p>
+            <p v-if="trackAllData.activities[trackAllData.activities.length-1].state == 6"> حالة الشحنة : فشل تسليم الشحنة - عادت إلى المستودع </p>
+          </div>
         <div class="distnation">
           <div>
             <span class="dis">{{ trackAllData.trip.line.destination.city.name}}</span>
@@ -62,16 +68,16 @@
 
         <div>
 
+          <div v-if="trackAllData.activities[4]">
+            <p v-if="trackAllData.activities[4].state == 5">  تم تسليم الشحنة بنجاح </p>
+            <p v-if="trackAllData.activities[4].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع  </p>
+            <p>11/02/2024 2:30 pm</p>  
+          </div>
           <div v-if="trackAllData.activities[3]">
             <p v-if="trackAllData.activities[3].state == 4"> الشحنة في الطريق للمستلم</p>
             <p v-if="trackAllData.activities[3].state == 5">تم تسليم الشحنة بنجاح </p>
             <p v-if="trackAllData.activities[3].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع  </p>
             <p>{{ trackAllData.activities[3].date }}</p>
-          </div>
-          <div v-if="trackAllData.activities[4]">
-            <p v-if="trackAllData.activities[4].state == 5">  تم تسليم الشحنة بنجاح </p>
-            <p v-if="trackAllData.activities[4].state == 6"> فشل تسليم الشحنة - عادت إلى المستودع  </p>
-            <p>11/02/2024 2:30 pm</p>  
           </div>
 
         </div>
@@ -79,7 +85,6 @@
       </div>
       <div class="buttoms">
       <button @click="homeBack">اغلاق </button>
-      <button> طباعة </button>
 
     </div>
     </div>
@@ -125,8 +130,10 @@
 
     .track{
       width: 100%;
-      height: 1000px;
+      height: 1120px;
      // background-color: rgb(38, 136, 136);
+     background-color:  #ebe8e4;
+
       display: flex;
       flex-wrap: wrap;
       align-content: flex-start;
@@ -263,6 +270,7 @@
   height: 120px;
   //background-color: red;
   display: flex;
+  background-color:  #ebe8e4;
   align-items: center;
   justify-content: space-evenly;
   button{

@@ -53,9 +53,9 @@
                 <tr v-for="(item, index) in trackAllData.items" :key="index">
                     <td>{{ item.merchandise.name }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.price }} ريال</td>
+                    <td>{{ (item.price).toFixed(2) }} ريال</td>
                     <td>{{ item.addedValueTax }} ريال</td>
-                    <td>{{ (item.quantity * item.price) + item.addedValueTax }} ريال</td>
+                    <td>{{ ((item.quantity * item.price) + item.addedValueTax).toFixed(2) }} ريال</td>
                 </tr>
             </tbody>
         </table>
@@ -231,9 +231,9 @@ export default {
     h2{
       width: 60%;
       //background-color: red;
-      text-align: center;
+      text-align: end;
       font-size: 40px;
-      padding-left: 250px;
+      //padding-left: 300px;
     }
     
     p{
@@ -251,14 +251,14 @@ export default {
     height: 260px;
     //background-color: rgb(102, 117, 117);
     display: flex;
-    padding-left: 520px;
+    padding-left: 400px;
 
-    //justify-content: center;
+    justify-content: center;
     table{
       margin-top: 15px;
-      width: 50%;
+      width: 200px;
       height: 200px;
-      //background-color: #B08347;
+      background-color: #B08347;
     }
     table td, table th{
       border: solid 1px #00000099;
@@ -269,7 +269,7 @@ export default {
     width: 100%;
     height: 250px;
     //background-color: rgb(38, 136, 136);
-    padding-left: 170px;
+    padding-left: 370px;
 
 }
 .keepIt{
@@ -277,7 +277,7 @@ export default {
   height: 50px;
   //background-color: red;
   p{
-    padding-left: 140px;
+    padding-left: 340px;
     //background-color: rgb(20, 138, 30);
   }
 
@@ -289,7 +289,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding-left: 160px;
+  padding-left: 380px;
   button{
     width: 90px;
     height: 30px;
@@ -313,16 +313,21 @@ export default {
       padding-left :20px;
     }
   }
-
+  .keepIt{
+  p{
+    padding-left:160px;
+   width: 100%;
+  }
+  }
 
   .contentQar{
     width: 100%;
     height: 300px;
     //background-color: rgb(38, 136, 136);
     
-      padding-left: 90px;
+      padding-left: 190px;
       position: relative;
-      bottom: 210px;
+      bottom: 10px;
 
     }
     .content >div:nth-child(2){
@@ -332,7 +337,7 @@ export default {
     
     
     height: 200px;
-    padding-left:250px;
+    padding-left:200px;
 
     //justify-content: center;
     table{
@@ -345,6 +350,8 @@ export default {
     }
   }
     }
+
+   
 /* media => phone ultra*/
 @media(max-width:450px){
 
@@ -365,25 +372,49 @@ export default {
   }
 
 }
-  .content div:first-child{
+  .content >div:first-child{
     padding-left: 0px;
     padding-right: 10px;
     align-items: flex-end;
     
     h2{
       //background-color: rgb(38, 136, 136);
-      padding-right: 110px
-     
+      padding-right: 110px;
+      
     }
     p{
+      padding-right: 110px;
       width: 70%;
     
+    }
+    div{
+      svg{
+          height: 90%;
+          width: 200px !important;
+          position: absolute;
+          right: 70px;
+        }
+
     }
   }
   .content >div:nth-child(2){
       padding-left: 0px;
-      padding-right: 10px;
+      padding-right: 110px;
       justify-content: flex-end;
     }
 }
+@media(max-width:360px){
+      .content div:first-child{
+    
+    h2{
+      //background-color: rgb(38, 136, 136);
+      padding-right: 60px;
+      
+    }
+    p{
+      padding-right: 60px;
+    
+    }
+  }
+    }
 </style>
