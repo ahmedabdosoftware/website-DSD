@@ -384,7 +384,7 @@ export default {
     }
     p{
       padding-right: 110px;
-      width: 70%;
+      width: 75%;
     
     }
     div{
