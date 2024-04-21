@@ -3,12 +3,12 @@
     <div class="title">
       <div>
         <router-link :to="{ name: 'TrackOrder', params: { id: 14146961 } }">
-          <p>تتبع الشحنة</p>
+          <p>التفاصيل</p>
         </router-link>
       </div>
       <div>
         <router-link :to="{ name: 'Details', params: { id: 14146961 } }">
-          <p>التفاصيل</p>
+          <p>تتبع الشحنة</p>
         </router-link>
       </div>
     </div>
@@ -18,7 +18,9 @@
           <h2>الاحمرى</h2>
           <p v-if="trackAllData.trip.trackingNumber">رقم البوليصة : {{ trackAllData.trip.trackingNumber}}</p>
           <div class="contentBar">
-          <svg width="300" id="barcode"></svg> <!-- هنا سيتم عرض الباركود -->
+            <img id="barcode" :src="barcodetracking" />
+
+         <!-- <svg width="300" id="barcode"> </svg> -->  <!-- هنا سيتم عرض الباركود -->
           </div>
           <p>تاريخ الطباعة : {{ new Date(trackAllData.receiveReceipt.createDate).toLocaleDateString('en-US') }}</p>
           <p>تاريخ الشحن : {{ new Date(trackAllData.date).toLocaleDateString('en-US') }}</p>
@@ -61,7 +63,8 @@
         </table>
       </div>
       <div class="contentQar">
-        <canvas id="qr-code"></canvas> <!-- هنا سيتم عرض رمز الاستجابة السريعة -->
+        <img :src="qrcodepp" />
+        <!-- <canvas id="qr-code"></canvas> --> <!-- هنا سيتم عرض رمز الاستجابة السريعة -->
       </div>
     </div>
     <div class="keepIt">
@@ -78,15 +81,16 @@
   </div>
 </template>
 <script>
-import JsBarcode from 'jsbarcode';
-import QRious from 'qrious';
-
-
+//import JsBarcode from 'jsbarcode';
+//import QRious from 'qrious';
+import fatooraKsa from '../fatooraksa/fatoora-ksa';
+import moment from 'moment';
 export default {
   name: 'TrackOrder',
   data(){
     return{
-      
+      qrcodepp: null,
+      barcodetracking: null,
         }
       },
   components: { 
@@ -105,8 +109,12 @@ export default {
       printFun(){
         window.print()
 
-      }
-      
+      },
+      formateDateWithMoment(date, formats) {
+          if (!date)
+            return null;
+          return moment(date).format(formats);
+      }      
     },
     
     created() {
@@ -117,28 +125,56 @@ export default {
      // console.log("Value of showButton:", this.showButton);
     },
     
+
+
+    
+   
   mounted() {
-    // تحديد العنصر الذي تريد عرض الباركود فيه
-    let barcodeElement = document.getElementById('barcode');
-    // توليد الباركود باستخدام الرقم المناسب
-    JsBarcode(barcodeElement, this.trackAllData.trip.trackingNumber, {
-      format: 'CODE128', // يمكنك تحديد الشكل هنا
-      displayValue: false, // قم بتعيينها على true إذا كنت ترغب في عرض القيمة أعلى الباركود
-    });
-    barcodeElement.setAttribute('width', '400');
-    barcodeElement.setAttribute('height', '200');
 
-    // تحديد العنصر الذي تريد عرض رمز الاستجابة السريعة فيه
-    let qrCodeElement = document.getElementById('qr-code');
-    // إنشاء رمز الاستجابة السريعة باستخدام الرقم المناسب
-    let qr = new QRious({
-      element: qrCodeElement,
-      value: this.trackAllData.trip.trackingNumber, // قيمة رمز الاستجابة السريعة
-      size: 250 // حجم رمز الاستجابة السريعة
-    });
-  }
+ //     barcode and qr code  الطريقة العادية لعمل ال 
 
+      //let barcodeElement = document.getElementById('barcode');
+     //JsBarcode(barcodeElement, this.trackAllData.trip.trackingNumber, {
+    // format: 'CODE128',
+   // displayValue: false,
+  //});
+ //barcodeElement.setAttribute('width', '400');
+//barcodeElement.setAttribute('height', '200');
+
+      //  let qrCodeElement = document.getElementById('qr-code');
+     //let qr = new QRious({
+    //element: qrCodeElement,
+   //value: this.trackAllData.trip.trackingNumber, 
+  // size: 250 
+ // });
+
+
+//     qr code المستخدمة فى السعودية لعمل الفواتير واستخدامها لعمل  katca => "fatoora ksa" باستخدام 
+
+    const fatooraData = {
+    seller: "الأحمرى للنقل البري",
+    vatRegNumber: "300163969600003",
+    timeStamp: `${this.formateDateWithMoment(
+          new Date(),
+          "YYYY-MM-DD hh:mm:ss"
+           )}`, 
+     totalAmount: `${this.trackAllData.totalPrice}`,
+     vatAmount: `${this.trackAllData.addedValueTax}`,
+    };
+
+    const base64String = fatooraKsa.toBase64(fatooraData);
+
+    this.barcodetracking =
+    "https://bwipjs-api.metafloor.com/?bcid=code128&text=" +
+    `${this.trackAllData.trip.trackingNumber}`;
+    
+    this.qrcodepp =
+    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+    `${base64String}`;
   
+  }
+  
+    
 }
 </script>
 <style lang="scss" scoped>
@@ -181,9 +217,10 @@ export default {
   .content{
     width: 120%;
     height: 1090px;
-    //background-color: rgb(57, 131, 23);
+   // background-color: rgb(57, 131, 23);
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     //background-color: rgb(57, 131, 23);
     overflow: hidden;
     
@@ -248,7 +285,7 @@ export default {
   }
   .content >div:nth-child(2){
     width: 100%;
-    height: 260px;
+    height: 220px;
     //background-color: rgb(102, 117, 117);
     display: flex;
     padding-left: 400px;
@@ -267,14 +304,28 @@ export default {
   .contentQar{
 
     width: 100%;
-    height: 250px;
+    height: 170px;
     //background-color: rgb(38, 136, 136);
     padding-left: 370px;
+    margin-top: 15px;
 
+
+  }
+.contentBar{
+
+  width: 100%;
+  height: 150px;
+  //background-color: rgb(38, 136, 136);
+  img{
+    width: 170px;
+    height: 70%;
+  }
 }
 .keepIt{
   width: 51%;
   height: 50px;
+  margin-top: -120px;
+
   //background-color: red;
   p{
     padding-left: 340px;
@@ -290,6 +341,7 @@ export default {
   align-items: center;
   justify-content: space-evenly;
   padding-left: 380px;
+  margin-top: -50px;
   button{
     width: 90px;
     height: 30px;
@@ -314,6 +366,8 @@ export default {
     }
   }
   .keepIt{
+    margin-top: -160px;
+
   p{
     padding-left:160px;
    width: 100%;
@@ -344,29 +398,32 @@ export default {
       width: 50%;
       height: 200px;
       //background-color: #B08347;
-
-
+      
+      
       margin-top: -10px;
     }
   }
-    }
+}
 
-   
+
 /* media => phone ultra*/
 @media(max-width:450px){
-
-  .buttoms{
-  padding-left: 0px;
-  }
-  .contentQar{
-  
-    width: 100%;
-    height: 250px;
-    //background-color: rgb(38, 136, 136);
-    padding-left: 0px;
+  .contentBar{
+    margin-right: 110px;
     
   }
-  .keepIt{
+  .buttoms{
+  padding-left: 0px;
+}
+.contentQar{
+  
+  width: 100%;
+  height: 250px;
+  //background-color: rgb(38, 136, 136);
+  padding-left: 0px;
+  
+}
+.keepIt{
   p{
     padding-left:0px;
   }

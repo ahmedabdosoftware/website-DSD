@@ -321,7 +321,7 @@
     </v-dialog>
   </base-card>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0px;
@@ -1181,24 +1181,59 @@ export default {
 
 
 
+   
+mounted() {
+  // تحديد العنصر الذي تريد عرض الباركود فيه
+  let barcodeElement = document.getElementById('barcode');
+  // توليد الباركود باستخدام الرقم المناسب
+  JsBarcode(barcodeElement, this.trackAllData.trip.trackingNumber, {
+    format: 'CODE128', // يمكنك تحديد الشكل هنا
+    displayValue: false, // قم بتعيينها على true إذا كنت ترغب في عرض القيمة أعلى الباركود
+  });
+  barcodeElement.setAttribute('width', '400');
+  barcodeElement.setAttribute('height', '200');
+
+  // تحديد العنصر الذي تريد عرض رمز الاستجابة السريعة فيه
+  let qrCodeElement = document.getElementById('qr-code');
+  // إنشاء رمز الاستجابة السريعة باستخدام الرقم المناسب
+  let qr = new QRious({
+    element: qrCodeElement,
+    value: this.trackAllData.trip.trackingNumber, // قيمة رمز الاستجابة السريعة
+    size: 250 // حجم رمز الاستجابة السريعة
+  });
+}
 
 
-<h2>الاحمرى</h2>
-<p>رقم البوليصة : {{ trackAllData.trip.trackingNumber}}</p>
-<div class="contentBar">
-  <img src="../assets/images/barcode.svg">
-</div>
-<p>تاريخ الطباعة : {{ trackAllData.receiveReceipt.createDate }}</p>
-<p>الرقم الضريبي : 300183548160008</p>
-<p>تاريخ الشحن : 30/8/2024</p>
-<p>نوع الخدمة : تجميع</p>
-<p>الرقم اليدوي : 0</p>
-<p>المسار :</p>
-<p>المرسل : {{ trackAllData.receiveReceipt.senderInfo.name }}</p>
-<p>جوال المرسل : {{ trackAllData.receiveReceipt.senderInfo.phoneNumber }}</p>
-<p>المستلم :  {{ trackAllData.receiveReceipt.receiverInfo.name }}</p>
-<p>جوال المستلم :  {{ trackAllData.receiveReceipt.receiverInfo.phoneNumber }}</p>
-<p>الرقم الضريبي : 0536551200</p>
-<p>السجل التجاري : 0536551200</p>
-<p> :الملاحظات </p>
-<p>طرق الدفع : نقدا</p>
+
+mounted() {
+  //generte barcode
+ let barcodeElement = document.getElementById('barcode');
+  JsBarcode(barcodeElement, this.trackAllData.trip.trackingNumber, {
+    format: 'CODE128',
+    displayValue: false, 
+  });
+  barcodeElement.setAttribute('width', '400');
+  barcodeElement.setAttribute('height', '200');
+
+
+
+
+//generate qr code
+let qrCodeElement = document.getElementById('qr-code');
+
+const fatooraData = {
+seller: Buffer.from("الأحمرى للنقل البري", "utf8"),
+vatRegNumber: "300163969600003",
+timeStamp: '${this.formateDateWithMoment(new Date(), "YYYY-MM-DD hh:mm:ss")}',
+totalAmount: '${this.trackAllData.totalPrice}',
+vatAmount: '${this.trackAllData.addedValueTax}',
+};
+
+const base64String = fatooraKsa.toBase64(fatooraData);
+
+let qrCode = new QRious({
+element: qrCodeElement,
+value: base64String, 
+size: 250  
+});
+}

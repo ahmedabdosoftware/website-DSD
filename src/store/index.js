@@ -10,6 +10,7 @@ export default createStore({
     showHeader: true,
     lan: {
       Ar: {
+        placeholder:"ادخل رقم الطلب الخاص بك ",
         packageDel: "تم تسليم الطرد",
         HappyClinnts: "عملاء سعداء",
         ReviewStar: "تقييمات 5 نجوم",
@@ -19,7 +20,7 @@ export default createStore({
         about: "من نحن",
         service: "خداماتنا",
         contact: "تواصل معنا ",
-        textBackground: " .عبر الطرق نحمل أحلامك ونقودها إليك",
+        textBackground: "عبر الطرق نحمل أحلامك ونقودها إليك بسلام وامان وبسرعة عالية ",
         textBackgroundDown: "تسليم سريع، خدمة استثنائية",
         track: "تتبع الشحنة ",
         branches: "الفروع",
@@ -27,7 +28,7 @@ export default createStore({
         serviceUnder: ":يتم نقل كل شيء إلى أي مكان بواسطتنا",
         aboutContent: ".شركة شحن وطنية، لخدمات النقل والخدمات اللوجستية، تقدم أفضل الخدمات للشركات والأفراد من خلال فريق عمل يؤمن بالعمل الجماعي",
         message: " رسالتنا",
-        ourMessageContent: ".هدف RASIL  هو أن تكون الشركة الرائدة بين شركات النقل والخدمات اللوجستية في المملكة والشرق الأوسط",
+        ourMessageContent: "هدف RASIL  هو أن تكون الشركة الرائدة بين شركات النقل والخدمات اللوجستية في المملكة والشرق الأوسط",
         through: " خلالنا",
         throughContent: " 1- تقديم الخدمات التي تغطي معظم أنحاء مدن المملكة و تتميز بأعلى مستويات الجودة2- الاستثمار في موظفينا ومنحهم الصلاحيات التي تساعدهم ويقومون بواجباتهم على أكمل وجه",
         Quality:"سياسة الجودة",
@@ -36,21 +37,21 @@ export default createStore({
         meansContent:"الجودة في الأحمري هي مسؤولية شخصية لكل موظف من موظفيها. ومن أجل الحفاظ على مستويات الجودة والأداء، ستقوم الشركة بتوفير كافة الوسائل اللازمة والتدريب والتطوير والدعم المستمر؛ وبالتالي، فإنه يخلق بيئة عمل لرعاية الموظفين. الرضا والتحفيز والالتزام يجعل الأحمر المكان المفضل للعمل. قيم الشركة: المبادرة والسرعة والشفافية والجودة والتعاون والولاء والصدق",
         
         Terms : " الشروط والاتفاقيات",
-        TermsContent: ".شركة شحن وطنية، لخدمات النقل والخدمات اللوجستية، تقدم أفضل الخدمات للشركات والأفراد من خلال فريق عمل يؤمن بالعمل الجماعي",
+        TermsContent: "شركة شحن وطنية، لخدمات النقل والخدمات اللوجستية، تقدم أفضل الخدمات للشركات والأفراد من خلال فريق عمل يؤمن بالعمل الجماعي",
         one: " رسالتنا",
         tow: " رسالتنا",
         oneContent: " في حالة فقدان أو تلف المنقولات أو تلفها لسبب خارج عن إدارة المؤسسة، يجب ألا يتجاوز التعويض بأي حال من الأحوال 10% من قيمة الطرد حسب فاتورة العميل، والتي أن لا تتجاوز القيمة 500 ريال كحد  ",
         towContent: " في حالة عدم استلام المنقولات من قبل العميل خلال 5 أيام من تاريخ الوثيقة، يحق للمنشأة احتساب الطوابق لكل طرد بما لا يتجاوز 20% من حصتها من الشحنة عن كل يوم تأخير",
         threeContent: " يتحمل العميل أي تكاليف إعادة المنقولات أو نقلها أو أرضيتها. في حالة عدم استلام المنقولات للعميل خلال 30 يومًا من تاريخ الوثيقة، يحق للمؤسسة التصرف في المنقولات دون أي مسؤولية عنها مقابل شحنها وتخزينها ولا يحق للمرسل أو المستقبل المطالبة بالتعويض عن ذلك. ",
-        fourContent: " المؤسسة غير مسؤولة عن البضائع القابلة للكسر والمواد السائلة والخطرة والمواد المحظورة.",
+        fourContent: " المؤسسة غير مسؤولة عن البضائع القابلة للكسر والمواد السائلة والخطرة والمواد المحظورة",
         
         howToSendYourOrder: "كيف تقوم بارسال طلبك",
         placeOrder: "قم بتقديم الطلب",
-        orderDescription: "اطلب شحنتك لتسليمها إلى أي مكان بأمان وبسرعة.",
+        orderDescription: "اطلب شحنتك لتسليمها إلى أي مكان بأمان وبسرعة",
         waitForArrival: "انتظر الوصول",
-        arrivalDescription: "انتظر وصول شحنتك في الوقت المحدد بكل هدوء وسلام.",
+        arrivalDescription: "انتظر وصول شحنتك في الوقت المحدد بكل هدوء وسلام",
         finishAndRate: "انهاء الطلب وتقييمنا",
-        finishAndRateDescription: "تصل شحنتك بأمان إلى الموقع المحدد دون تأخير.",
+        finishAndRateDescription: "تصل شحنتك بأمان إلى الموقع المحدد دون تأخير",
         branchesInfo: "الفروع",
 
        // jeddah: "جدة",
@@ -64,16 +65,25 @@ export default createStore({
         //AlQunfudhahSchedule: "كل يوم، من الساعة 07:00 صباحًا حتى الساعة 03:00 مساءً",
         
         reviews: "التقييمات",
-        review1: "شكرًا لكم RASIL على هذه الخدمة الرائعة.",
+        review1: "شكرًا لكم راسيل على هذه الخدمة الرائعة",
         review1Author: "فارس كنان",
         review1Role: "عميل",
-        review1Text: "شركة محترمة ومنظمين في عملهم، نأمل أن يكون هذا ليس آخر تعامل معكم. حياكم الله.",
-        review2: "عامل التوصيل محترم جداً. هذه الشركة منظمة وآمنة.",
+        review1Text: "شركة محترمة ومنظمين في عملهم، نأمل أن يكون هذا ليس آخر تعامل معكم. حياكم الله",
+        review2: "العامل جدا خدوم و الشركة كتير منظمة ",
         review2Author: "محسن راجح",
         review2Role: "عميل",
-        review3: ". العامل في التوصيل محترم للغاية. هذه الشركة منظمة وآمنة",
+        review3: " العامل في التوصيل محترم للغاية. هذه الشركة منظمة وآمنة",
         review3Author: "شذى حمد",
         review3Role: "عميل",
+        review4:"شركة محترمة تلتزم بالمواعيد ولن يكون اخر تعامل ان شاء الله ",
+        review4Author:"محمد سعيد",
+        review4Role: "عميل",
+        review5: "تعامل راقى وشركة محترمة للامانة",
+        review5Role: "Client",
+        review5Author: "ابو نواف",
+        review6: "حياكم الله على هذا التنظيم ",
+        review6Role: "عميل",
+        review6Author: " صادق احمد",
         contactUs: "التواصل معنا",
         contactUsText: "اتصل بنا",
         contactUsEmail: "Example@gmail.com",
@@ -174,6 +184,7 @@ export default createStore({
         
       },
       En: {
+        placeholder:"enter your order for search",
         packageDel: "package delivered",
         HappyClinnts: "Happy clients",
         ReviewStar: "5 stars Reviews",
@@ -322,6 +333,15 @@ export default createStore({
         review3: "The delivery worker is very respectable. This company is organized and safe",
         review3Role: "Client",
         review3Author: "Shaza Hamd",
+        review4: "A respectable company that adheres to deadlines, and this will not be the last interaction, God willing",
+        review4Role: "Client",
+        review4Author: "mohamed said",
+        review5: "Classy dealings and a respectable, honest company",
+        review5Role: "Client",
+        review5Author: "abu noaf",
+        review6: "May God bless you for this organization",
+        review6Role: "Client",
+        review6Author: "sadik ahmed",
         contactUs: "CONTACT WITH US",
         contactUsText: "Contact us",
         contactUsEmail: "Example@gmail.com",
@@ -431,7 +451,11 @@ export default createStore({
            e.classList.remove("alinPadding")
             });
 
-                  
+               //global classes "add to some of elements" => to change dirction  "with classes its more organizied"
+           document.querySelectorAll('.howtOsEnd >div:nth-child(2) >div >div:nth-child(2)').forEach(function(e) {
+            e.classList.remove("howP")
+             });
+
           //spicial classes "add to parent of elements" and "add to some of elements" also"
           document.querySelectorAll('.componnent').forEach(function(e) {
               e.classList.remove("componnentAr")

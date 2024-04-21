@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Details from '../views/Details.vue'
+//import Tracking from '../views/Tracking.vue'
 import store from '../store/index.js'; // استيراد المتجر Vuex
 
 const routes = [
@@ -14,7 +15,7 @@ const routes = [
     name: 'Details',
     component: Details,
     meta: { hideHeader: true } // تعيين خاصية meta لإخفاء الهيدر
-
+    
   },
   {
     path: '/TrackOrder/:id',
@@ -25,7 +26,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/TrackOrder.vue'),
     meta: { hideHeader: true }, // تعيين خاصية meta لإخفاء الهيدر
-  }
+  },
+ 
 ]
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

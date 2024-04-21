@@ -3,12 +3,12 @@
       <div class="title">
         <div>
             <router-link :to="{ name: 'TrackOrder', params: { id: 14146961 } }">
-              <p>تتبع الشحنة</p>
+              <p>التفاصيل</p>
             </router-link>
           </div>
           <div>
-          <router-link :to="{ name: 'Details', params: { id: 14146961 } }">
-            <p>التفاصيل</p>
+            <router-link :to="{ name: 'Details', params: { id: 14146961 } }">
+              <p>تتبع الشحنة</p>
           </router-link>
         </div>
       </div>
