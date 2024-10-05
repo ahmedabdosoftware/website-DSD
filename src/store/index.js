@@ -5,46 +5,72 @@ export default createStore({
   state: {
     langNow: localStorage.getItem('ourLangauge') || 'En',
     mapbranche: "Jeddah",
-    trackData: null, // قم بتعيين القيمة الافتراضية وفقًا للمسار
-    numberOredrs: null, // قم بتعيين القيمة الافتراضية وفقًا للمسار
     showHeader: true,
     lan: {
       Ar: {
-        placeholder:"ادخل رقم الطلب الخاص بك ",
-        packageDel: "تم تسليم الطرد",
-        HappyClinnts: "عملاء سعداء",
-        ReviewStar: "تقييمات 5 نجوم",
-        seeMore: "المزيد",
-        seeLess: "اقل",
+        
+        // boxProduct info "used"
+        askByWats:"اطلب عبر الواتساب",
+        detailsProduct:"التفاصيل",
+        detailsOfProduct:"تفاصيل المنتج",
+        relatedOfProduct:"شاهد ايضا",
+
+        // nav section "used"
         home: "الرئيسية",
         about: "من نحن",
         service: "خداماتنا",
         contact: "تواصل معنا ",
-        textBackground: "عبر الطرق نحمل أحلامك ونقودها إليك بسلام وامان وبسرعة عالية ",
-        textBackgroundDown: "تسليم سريع، خدمة استثنائية",
-        track: "تتبع الشحنة ",
+
+        // background section "used"
+        textBackground: " نبتكر حلولًا مخصصة لمشاريع الديكور الأنيقة" ,
+        textBackgroundDown: ".نحن ملتزمون بتقديم حلول تصميم أنيقة ومخصصة لمشاريع الديكور، مع التركيز على بناء علاقات دائمة ومتميزة مع عملائنا الكرام",
+        lastestProjects:"الاطلاع على اخر الاعمال",
         branches: "الفروع",
         service: "الخدمات",
-        serviceUnder: ":يتم نقل كل شيء إلى أي مكان بواسطتنا",
-        aboutContent: ".شركة شحن وطنية، لخدمات النقل والخدمات اللوجستية، تقدم أفضل الخدمات للشركات والأفراد من خلال فريق عمل يؤمن بالعمل الجماعي",
-        message: " رسالتنا",
-        ourMessageContent: "هدف RASIL  هو أن تكون الشركة الرائدة بين شركات النقل والخدمات اللوجستية في المملكة والشرق الأوسط",
-        through: " خلالنا",
-        throughContent: " 1- تقديم الخدمات التي تغطي معظم أنحاء مدن المملكة و تتميز بأعلى مستويات الجودة2- الاستثمار في موظفينا ومنحهم الصلاحيات التي تساعدهم ويقومون بواجباتهم على أكمل وجه",
-        Quality:"سياسة الجودة",
-        QualityContent:"تلتزم إدارة راسيل التزاماً كاملاً بتقديم خدمات تتميز بأعلى مستويات الجودة لجميع عملائها، مع بذل كل جهد لتجنب المخاطر المتوقعة. ولا يأتي ذلك لتلبية احتياجات العملاء فحسب، بل لتجاوز احتياجاتهم وتوقعاتهم؛ مما يساهم في تحسين أداء الشركة بطريقة مستمرة في تقديم خدمات آمنة ومهنية وفعالة من حيث التكلفة باستخدام أحدث الأساليب و",
-        means:"وسائل",
-        meansContent:"الجودة في الأحمري هي مسؤولية شخصية لكل موظف من موظفيها. ومن أجل الحفاظ على مستويات الجودة والأداء، ستقوم الشركة بتوفير كافة الوسائل اللازمة والتدريب والتطوير والدعم المستمر؛ وبالتالي، فإنه يخلق بيئة عمل لرعاية الموظفين. الرضا والتحفيز والالتزام يجعل الأحمر المكان المفضل للعمل. قيم الشركة: المبادرة والسرعة والشفافية والجودة والتعاون والولاء والصدق",
+        catalog:"كاتلوج",
+        serviceUnder: ": نمتلك خبرات كبيرة فى عدة خدمات ",
+        catalogUnder:"يمكنك الاطلاع على الكاتلوج وعمل فلترة للخدمة التى تهتم بها",
         
-        Terms : " الشروط والاتفاقيات",
-        TermsContent: "شركة شحن وطنية، لخدمات النقل والخدمات اللوجستية، تقدم أفضل الخدمات للشركات والأفراد من خلال فريق عمل يؤمن بالعمل الجماعي",
-        one: " رسالتنا",
-        tow: " رسالتنا",
-        oneContent: " في حالة فقدان أو تلف المنقولات أو تلفها لسبب خارج عن إدارة المؤسسة، يجب ألا يتجاوز التعويض بأي حال من الأحوال 10% من قيمة الطرد حسب فاتورة العميل، والتي أن لا تتجاوز القيمة 500 ريال كحد  ",
-        towContent: " في حالة عدم استلام المنقولات من قبل العميل خلال 5 أيام من تاريخ الوثيقة، يحق للمنشأة احتساب الطوابق لكل طرد بما لا يتجاوز 20% من حصتها من الشحنة عن كل يوم تأخير",
-        threeContent: " يتحمل العميل أي تكاليف إعادة المنقولات أو نقلها أو أرضيتها. في حالة عدم استلام المنقولات للعميل خلال 30 يومًا من تاريخ الوثيقة، يحق للمؤسسة التصرف في المنقولات دون أي مسؤولية عنها مقابل شحنها وتخزينها ولا يحق للمرسل أو المستقبل المطالبة بالتعويض عن ذلك. ",
-        fourContent: " المؤسسة غير مسؤولة عن البضائع القابلة للكسر والمواد السائلة والخطرة والمواد المحظورة",
-        
+        // unused data 
+        placeholder:"ادخل رقم الطلب الخاص بك ",
+        packageDel: "تم تسليم الطرد",
+        HappyClinnts: "عملاء سعداء",
+        ReviewStar: "تقييمات 5 نجوم",
+        track: "تتبع الشحنة ",
+
+        // about section "used"
+        aboutContent: ".نحن شركة متخصصة في مجال الديكورات، نقدم حلولاً مبتكرة وفريدة من نوعها لتلبية احتياجات العملاء من الكرانيش وبديل الرخام بفضل فريق عمل متميز يلتزم بأعلى معايير الجودة",
+        message: "رسالتنا",
+        ourMessageContent: "هدف شركتنا هو أن تكون الرائدة في مجال الديكور الداخلي والخارجي وتقديم تصاميم متميزة تضيف قيمة وجمال لكل مشروع",
+        through: "من خلالنا",
+        throughContent: " تقديم خدمات تصميم وتنفيذ تغطي معظم أنحاء الجمهورية وتتميز بأعلى مستويات الجودة- الاستثمار في موظفينا ومنحهم الصلاحيات التي تساعدهم على أداء مهامهم بكفاءة وإبداع",
+        Quality: "سياسة الجودة",
+        QualityContent: "تلتزم إدارتنا بتقديم خدمات تتميز بأعلى مستويات الجودة لعملائنا، مع السعي الدائم لتجاوز توقعاتهم من خلال تحسين مستمر في الأداء وتقديم خدمات مهنية وفعالة من حيث التكلفة باستخدام أحدث الأساليب",
+        means: "وسائل",
+        meansContent: "الجودة في شركتنا هي مسؤولية شخصية لكل موظف. لضمان الحفاظ على مستويات الجودة والأداء، نوفر كافة الوسائل اللازمة والتدريب المستمر والدعم. هذا يساهم في خلق بيئة عمل مثالية تحفز الموظفين على الإبداع والتفاني. قيمنا تشمل: المبادرة، الجودة، الشفافية، التعاون، والولاء",
+      
+        // Commitments section "used"
+    Commitments: "التزاماتنا",
+    CommitmentsContent: "نحن ملتزمون بتقديم أفضل الخدمات في مجال الديكور، ونضمن رضا عملائنا من خلال الالتزام بأعلى معايير الجودة والاحترافية. عملاؤنا هم محور اهتمامنا، ونسعى دائماً لتقديم حلول مخصصة تلبي احتياجاتهم الفريدة.",
+    tow: "هدفنا",
+    towContent: "نسعى لبناء علاقات طويلة الأمد مع عملائنا من خلال تقديم خدمات متميزة تلبي احتياجاتهم وتفوق توقعاتهم",
+    three: "معايير الجودة",
+    threeContent: "نؤمن بأن الجودة هي مفتاح النجاح، لذلك نحرص على اتباع أعلى معايير الجودة في جميع مراحل العمل",
+    four: "الابتكار",
+    fourContent: "نسعى دائماً لتقديم حلول مبتكرة تلبي احتياجات العملاء وتتماشى مع أحدث الاتجاهات في مجال الديكور",
+    five: "التواصل المستمر",
+    fiveContent: "نحرص على التواصل المستمر مع عملائنا لضمان تحقيق رؤيتهم وتصميماتهم بأفضل شكل ممكن",
+    six: "خدمات ما بعد البيع",
+    sixContent: "نحن ملتزمون بتقديم خدمات ما بعد البيع لدعم عملائنا وضمان رضاهم التام عن خدماتنا",
+    siven: "الالتزام بالمواعيد",
+    sivenContent: "ندرك أهمية الالتزام بالمواعيد النهائية ونسعى لتحقيق ذلك في جميع مشاريعنا",
+
+
+        // comman between Commitments and about section "used"
+        seeMore: "المزيد",
+        seeLess: "اقل",
+
+        // how To Send Your Order "used"
         howToSendYourOrder: "كيف تقوم بارسال طلبك",
         placeOrder: "قم بتقديم الطلب",
         orderDescription: "اطلب شحنتك لتسليمها إلى أي مكان بأمان وبسرعة",
@@ -52,18 +78,9 @@ export default createStore({
         arrivalDescription: "انتظر وصول شحنتك في الوقت المحدد بكل هدوء وسلام",
         finishAndRate: "انهاء الطلب وتقييمنا",
         finishAndRateDescription: "تصل شحنتك بأمان إلى الموقع المحدد دون تأخير",
-        branchesInfo: "الفروع",
 
-       // jeddah: "جدة",
-        //jeddahContact: "+96614564888 / +96697213975",
-        //jeddahAddress: "المهجر، جدة 22421، المملكة العربية السعودية",
-        //jeddahSchedule: "كل يوم، من الساعة 07:00 صباحًا حتى الساعة 03:00 مساءً",
-
-        //AlQunfudhah: "القنفــــذة",
-        ///AlQunfudhahContact: "+0569286258, / +0569286264",
-        //AlQunfudhahdAddress: "المهجر، الرياض 22421، المملكة العربية السعودية",
-        //AlQunfudhahSchedule: "كل يوم، من الساعة 07:00 صباحًا حتى الساعة 03:00 مساءً",
-        
+  
+        //reviews  "used" but we wanna change data
         reviews: "التقييمات",
         review1: "شكرًا لكم راسيل على هذه الخدمة الرائعة",
         review1Author: "فارس كنان",
@@ -84,6 +101,8 @@ export default createStore({
         review6: "حياكم الله على هذا التنظيم ",
         review6Role: "عميل",
         review6Author: " صادق احمد",
+
+        // footer info "used" but we wanna change the data
         contactUs: "التواصل معنا",
         contactUsText: "اتصل بنا",
         contactUsEmail: "Example@gmail.com",
@@ -98,7 +117,8 @@ export default createStore({
         locationHours: "07:00 صباحًا - 03:00 مساءً",
         copyright: "RASIL لتكنولوجيا المعلومات — 2024 ©",
 
-
+        // branchesInfo "used" but we wanna change the data
+        branchesInfo: "الفروع",
         Jeddah: {
           name: "جــــدة",
           phone: "0569286392",
@@ -184,40 +204,68 @@ export default createStore({
         
       },
       En: {
+        // boxProduct info "used"
+        detailsProduct:"details",
+        askByWats:"ask by whats",
+        detailsOfProduct:"Product Details",
+        relatedOfProduct:"related products",
+
+        
+        // unused data
+        catalog:"catalog",
         placeholder:"enter your order for search",
         packageDel: "package delivered",
         HappyClinnts: "Happy clients",
         ReviewStar: "5 stars Reviews",
-        seeMore: "see more",
-        seeLess: "see less",
+        track: "Track Order",
+        
+        // nav section "used"
         home: "home",
         about: "about",
         service: "service",
         contact: " contact us",
-        textBackground: " Across the roads, we carry your dreams and drive them to you.",
-        textBackgroundDown: " Fast delivery, Exceptional service",
-        track: "Track Order",
+
+        // background section "used"
+        textBackground: "Creating tailored solutions for elegant décor projects.",
+        textBackgroundDown: "We’re dedicated to delivering elegant design solutions and building lasting customer relationships.",
+        lastestProjects:"Check out our latest projects",
         branches: "branches",
         service: "service",
-        serviceUnder: "Everything is moved anyplace by us :",
-        aboutContent: "A National Shipping Company, For Transportation And Logistics Services, Providing The Best Service To Companies And Individuals Through A Work Team That Believes In Teamwork.",
-        message: "our message ",
-        ourMessageContent: " RASIL's Goal Is To Be The Leading Company Among The Transportation And Logistical Services Companies In The Kingdom And The Middle East. ",
-        through: " through",
-        throughContent: " 1- Providing services covering most parts of the Kingdom’s cities and characterized by the highest levels of qualitythem perform their duties to the fullest extent",
-        Terms : "Terms And Agreements",
-        TermsContent : "A National Shipping Company, For Transportation And Logistics Services, Providing The Best Service To Companies And Individuals Through A Work Team That Believes In Teamwork.",
-        one: "our message ",
-        oneContent: "1- In the event of loss or damage to movables or their damage due to a reason outside the management of the institution, the compensation shall not, in any case, exceed 10% of the value of the parcel according to the customer’s invoice, which value should not exceed 500 riyals as a maximum. ",
-        tow: "our message ",
-        towContent: "2- If the movables are not received by the customer within 5 days from the date of the policy, the establishment has the right to calculate the floors for each parcel, not exceeding 20% of its portion of the shipment for each day of delay. ",
-        threeContent: "3- The customer shall bear any costs of returning, transferring, or flooring the movables. If the movables are not received by the customer within 30 days from the date of the policy, the institution has the right to dispose of the movables without any responsibility for them in return for shipping and storing them. The sender or recipient is not entitled to claim compensation for that. ",
-        fourContent: "4- The institution is not responsible for fragile goods, liquid and dangerous materials, and prohibited items.",
-        Quality:"Quality Policy",
-        QualityContent:"RASIL management is fully committed to providing services that are characterized by the highest Quality levels for all of its clients, while making every effort to avoid expected risks.This comes not only to meet the needs of customers, but to exceed their needs and expectations; Which contributes to improving the company's performance in a way continuous provision of safe, professional and cost-effective services using The latest methods and",
-        means:"means",
-        meansContent:"Quality in Al Ahmari is a personal responsibility of each of its employees. In order to maintain the levels of quality and performance, the company will By providing all the necessary means, training, development and support continuous; Thus, it creates a working environment for caring employees. Satisfaction, motivation and commitment make Al Ahmar the preferred place to work.Company Values:Initiative, speed, transparency, quality, cooperation, loyalty, honesty",
+        serviceUnder: " we have a great export in multi service :",
+        catalogUnder: " you can see our catalog and make filtring for your interest :",
         
+        // about section "used"
+        aboutContent: "We are a specialized company in décor, providing innovative and unique solutions to meet the needs of our customers in cornices and marble alternatives through a dedicated team committed to the highest quality standards.",
+        message: "Our Message",
+        ourMessageContent: "Our goal is to be the leader in interior and exterior décor, offering distinguished designs that add value and beauty to every project.",
+        through: "Through Us",
+        throughContent: "1- Providing design and implementation services that cover most regions of the Republic with the highest quality standards.\n2- Investing in our employees and empowering them to perform their duties with efficiency and creativity.",
+        Quality: "Quality Policy",
+        QualityContent: "Our management is fully committed to providing services characterized by the highest quality standards to our clients, continually striving to exceed their expectations through continuous improvement in performance and offering professional and cost-effective services using the latest methods.",
+        means: "Means",
+        meansContent: "Quality in our company is a personal responsibility for every employee. To ensure maintaining quality and performance levels, we provide all necessary means, continuous training, and support. This contributes to creating an ideal work environment that motivates employees to be creative and dedicated. Our values include: Initiative, Quality, Transparency, Cooperation, and Loyalty.",
+        
+        // Commitments section "used"
+        Commitments: "Our Commitments",
+        CommitmentsContent: "We are committed to providing the best services in the field of décor, ensuring customer satisfaction through adherence to the highest standards of quality and professionalism. Our clients are our top priority, and we always strive to deliver customized solutions that meet their unique needs.",
+        tow: "Our Goal",
+        towContent: "We aim to build long-term relationships with our clients by providing exceptional services that meet their needs and exceed their expectations.",
+        three: "Quality Standards",
+        threeContent: "We believe that quality is the key to success, and therefore we adhere to the highest quality standards at all stages of our work.",
+        four: "Innovation",
+        fourContent: "We always strive to provide innovative solutions that meet the needs of our clients and align with the latest trends in the décor field.",
+        five: "Continuous Communication",
+        fiveContent: "We ensure continuous communication with our clients to realize their vision and designs in the best possible way.",
+        six: "After-Sales Services",
+        sixContent: "We are committed to providing after-sales services to support our clients and ensure their complete satisfaction with our services.",
+        siven: "Timely Delivery",
+        sivenContent: "We recognize the importance of meeting deadlines and strive to achieve this in all our projects.",
+        
+        // comman between Commitments and about section "used"
+        seeMore: "see more",
+        seeLess: "see less",
+
+        // how To Send Your Order section "used"
         howToSendYourOrder: "how to send your order",
         placeOrder: "Place an order",
         orderDescription: "Request your shipment to be delivered to anywhere safely and faster.",
@@ -225,18 +273,10 @@ export default createStore({
         arrivalDescription: "Wait for your shipment to arrive on time with complete peace of mind.",
         finishAndRate: "Finish and rate us",
         finishAndRateDescription: "Your shipment arrives safely at the specified location without delay.",
+        
+        
+       // branches section "used" but we wanna change the data  
         branchesInfo: "BRANCHES",
-
-        //jeddah: "Jeddah",
-        //jeddahContact: "+96614564888 / +96697213975",
-       // jeddahAddress: "Al Mahjar, Jeddah 22421, Saudi Arabia",
-        //jeddahSchedule: "Every day, 10:00 AM to 03:00 PM",
-
-       // AlQunfudhah: "Al Qunfudhah",
-       // AlQunfudhahContact: "+0569286258, / +0569286264",
-       // AlQunfudhahdAddress: "Al Mahjar, Ryad 22421, Saudi Arabia",
-       // AlQunfudhahSchedule: "Every day, 07:00 AM to 03:00 PM",
-
        Jeddah: {
         name: "Jeddah",
         phone: "0569286392",
@@ -321,7 +361,7 @@ export default createStore({
         schedule: "add your time table here",
       },
 
-
+        // reviews section "used" but we wanna change the data  
         reviews: "REVIEWS",
         review1: "Thank you RASIL for this wonderful service.",
         review1Author: "Fares Kenan",
@@ -342,6 +382,8 @@ export default createStore({
         review6: "May God bless you for this organization",
         review6Role: "Client",
         review6Author: "sadik ahmed",
+
+        // footer section "used" but we wanna change the data  
         contactUs: "CONTACT WITH US",
         contactUsText: "Contact us",
         contactUsEmail: "Example@gmail.com",
@@ -376,16 +418,11 @@ export default createStore({
         console.log("its changed to arabic")
 
         //spicial classes "add to single element"
-        document.getElementById("back").classList.add("backForArabic")
-        document.getElementById("backfooter").classList.add("backfooterForArabic")
-        document.getElementById("contInput").classList.add("contInputForArabic")
-        document.querySelector(".tittle").classList.add("tittleAr")
-        document.querySelector(".imageBranches").classList.add("imageBranchesAr")
+          //document.querySelector(".imageBranches").classList.add("imageBranchesAr")
         
         //spicial classes "add to parent of elements"
-        document.querySelector(".textBranches").classList.add("textBranchesAr")
-        document.querySelector(".componnent").classList.add("componnentAr")
-        document.querySelector(".footer").classList.add("footerAr")
+           //document.querySelector(".textBranches").classList.add("textBranchesAr")
+          //document.querySelector(".footer").classList.add("footerAr")
         
         
 
@@ -404,34 +441,30 @@ export default createStore({
 
 
         //global classes "add to some of elements" => to change dirction  "with classes its more organizied"
-           document.querySelectorAll('.lanDir').forEach(function(e) {
-           e.classList.add("alinPadding")
-            });
+           //document.querySelectorAll('.lanDir').forEach(function(e) {
+          // e.classList.add("alinPadding")
+         //});
+
         //global classes "add to some of elements" => to change dirction  "with classes its more organizied"
-           document.querySelectorAll('.howtOsEnd >div:nth-child(2) >div >div:nth-child(2)').forEach(function(e) {
-           e.classList.add("howP")
-            });
+            //document.querySelectorAll('.howtOsEnd >div:nth-child(2) >div >div:nth-child(2)').forEach(function(e) {
+           //e.classList.add("howP")
+          //});
             
               
         //spicial classes "add to parent of elements" and "add to some of elements" also"
-            document.querySelectorAll('.componnent').forEach(function(e) {
-            e.classList.add("componnentAr")
-             });
+           // document.querySelectorAll('.componnent').forEach(function(e) {
+            //e.classList.add("componnentAr")
+             // });
             
       } else{
         console.log("its changed to english")
 
         //spicial classes "add to single element"
-        document.getElementById("back").classList.remove("backForArabic")
-        document.getElementById("backfooter").classList.remove("backfooterForArabic")
-        document.getElementById("contInput").classList.remove("contInputForArabic")
-        document.querySelector(".tittle").classList.remove("tittleAr")
-        document.querySelector(".imageBranches").classList.remove("imageBranchesAr")
+          //document.querySelector(".imageBranches").classList.remove("imageBranchesAr")
 
          //spicial classes "remove to up of elements"
-         document.querySelector(".textBranches").classList.remove("textBranchesAr")
-         document.querySelector(".componnent").classList.remove("componnentAr")
-         document.querySelector(".footer").classList.remove("footerAr")
+           //document.querySelector(".textBranches").classList.remove("textBranchesAr")
+           //document.querySelector(".footer").classList.remove("footerAr")
 
 
         //                   no changeing in header
@@ -442,35 +475,29 @@ export default createStore({
        
         //                     anchint without class
        
-        //document.querySelector("ul").style.cssText = "order:2 ;";              
+         //document.querySelector("ul").style.cssText = "order:2 ;";              
         //document.querySelector(".logo-cont").style.cssText = "order:1 ;";              
-        //document.querySelector("header > div:nth-child(3)").style.cssText = "order:3 ;"; 
+       //document.querySelector("header > div:nth-child(3)").style.cssText = "order:3 ;"; 
         
           //global classes "add to some of elements" => to change dirction "with classes its more organizied"
-          document.querySelectorAll('.lanDir').forEach(function(e) {
-           e.classList.remove("alinPadding")
-            });
+            //document.querySelectorAll('.lanDir').forEach(function(e) {
+           //e.classList.remove("alinPadding")
+          //});
 
                //global classes "add to some of elements" => to change dirction  "with classes its more organizied"
-           document.querySelectorAll('.howtOsEnd >div:nth-child(2) >div >div:nth-child(2)').forEach(function(e) {
-            e.classList.remove("howP")
-             });
+              // document.querySelectorAll('.howtOsEnd >div:nth-child(2) >div >div:nth-child(2)').forEach(function(e) {
+             //e.classList.remove("howP")
+            //});
 
           //spicial classes "add to parent of elements" and "add to some of elements" also"
-          document.querySelectorAll('.componnent').forEach(function(e) {
-              e.classList.remove("componnentAr")
-              });
+            //document.querySelectorAll('.componnent').forEach(function(e) {
+            //e.classList.remove("componnentAr")
+           //});
         
       }
  },  
- storeTrack (state,data) {
-      state.trackData=data
-      console.log("i am runing track ")
-    },
- storeNumberOredrs (state,data) {
-      state.numberOredrs=data
-      console.log("i am runing numberOredrs ")
-    },
+ 
+
   },
   getters: {
     catchLang(state) {
@@ -490,30 +517,7 @@ export default createStore({
   },
  
   actions: {
-    fetchTrack(context, orderId) {
-      return axios
-        .get(`https://2024.al-ahmari.com.sa/api/Shipments/${orderId}/Receipt`)
-        .then((res) => {
-          context.commit('storeTrack', res.data);
-          return res.data; // إرجاع البيانات في حالة النجاح للاستفادة منها في المكون
-        })
-        .catch((error) => {
-          console.log(error);
-          throw error; // إعادة الخطأ في حالة حدوث خطأ
-        });
-    },
-    fetchNumberOrders(context ) {
-      return axios
-        .get(`https://2024.al-ahmari.com.sa/api/SiteDate`)
-        .then((res) => {
-          context.commit('storeNumberOredrs', res.data);
-          return res.data; // إرجاع البيانات في حالة النجاح للاستفادة منها في المكون
-        })
-        .catch((error) => {
-          console.log(error);
-          throw error; // إعادة الخطأ في حالة حدوث خطأ
-        });
-    },
+    
     updateShowHeader({ commit }, value) {
       commit('setShowHeader', value);
     }

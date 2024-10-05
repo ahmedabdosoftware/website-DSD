@@ -1,7 +1,7 @@
 <template>
     <header>
       <div :lang="myLanguage" id="logo-cont" class="logo-cont"> 
-            <img class="logoImge" src="../../assets/images/logo.svg">
+      <img class="logoImge" src="../../assets/images/logo.png">
       </div>
       <ul id="nav">
         <li>
@@ -28,7 +28,6 @@
         <div  class="contLang"  :lang="myLanguage">
             <img  id="lanImage" class= "lanImage" src="../../assets/images/lan.png">
             <select   v-on:change="lannguageChossed()" id="language-change"  class="language-change">
-            <option  value="none"> cho</option>
             <option  value="En"> Eng</option>
             <option  value="Ar">Ar</option>
             </select>
@@ -81,8 +80,10 @@
   <style scoped lang="scss">
    a {
     font-weight: bold;
-    color: #4b5a68;
+    color: white;
     text-decoration: none;
+    font-size: 22px;
+    text-transform: lowercase;
 
     &.router-link-exact-active {
       color: var(--buttom);
@@ -99,10 +100,13 @@
     position: sticky;
     top: 0px;
     z-index: 100;
+    background-image: url("../../assets/images/hero-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     //background-color: red;
   }
   ul {
-    width: 500px;
+    width: 700px;
     margin-left:160px;
     display: flex;
     justify-content: space-evenly;
@@ -111,8 +115,8 @@
     //background-color:rgb(33, 138, 42);
   }
   .logo-cont {
-    width: 150px;
-    height: 40px;
+    width: 220px;
+    height: 160px;
     margin-left: 100px;
     //background-color:rgb(122, 108, 108);
     padding-right: 60px;
@@ -123,21 +127,23 @@
     }
   }
   .contLang{
-    //background-color:salmon;
-    width: 140px;
+    background-color:white;
+   // background-color:rgb(204, 97, 97);
+    width: 100px;
     height: 40px;
     // margin-left: 360px;
     margin-right: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 10px;
     >div{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         width: 80px;
         height: 90%;
-       //background-color: rgb(224, 224, 226);
+        //background-color: rgb(83, 134, 25);
         position: relative;
         border-radius: 4px;
    
@@ -154,16 +160,18 @@
 
 }
 .language-change{
-    width: 50px;
+    width: 60px;
     border: none;
     font-weight: 600;
     cursor: pointer;
-    //background-color: red;
+    margin-left: 8px;
+   // background-color: red;
 
 }
 .lanImage{
     width: 20px;
     height: 20px;
+    margin-left: 5px;
 }
 .icon-menu,#x{
     display: none;
@@ -192,6 +200,9 @@
       padding-left: 17px;
       z-index: 1;
       transition: 0.5s;
+      background-image: url("../../assets/images/hero-bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
    }
    header ul li {
         padding-top: 15px;
@@ -234,7 +245,9 @@
    .logo-cont {
       margin-left:0px;
       padding-right: 0px;
-      width: 140px;
+      width: 100px;
+      height: 120px;
+
       //background-color:rgb(11, 119, 52);
     }
    .logo-cont:lang(Ar) {
