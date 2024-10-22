@@ -153,15 +153,8 @@
         <div class="textBranches textBranchesAr">
           <span>{{lannguage.branchesInfo}}</span>
           <select v-on:change="brancheChossed()" class="branches-change">
-            <option value="Jeddah"> {{myLanguage==='En' ? 'Jeddah' : 'جدة'}}</option>
-            <option value="AlQunfudhah"> {{myLanguage==='En' ? 'Al Qunfudhah' : 'القنفــــذة'}}</option>
-            <option value="Samtah"> {{myLanguage==='En' ? 'Samtah' : 'صـــامــطة'}}</option>
-            <option value="AhadAlMasarihah"> {{myLanguage==='En' ? 'Ahad Al-Masarihah' : "أحد المسارحة/الحصمة"}}</option>
-            <option value="BishaDarab"> {{myLanguage==='En' ? 'Bisha/Darab' : "بيــش/الــدرب"}} </option>
-            <option value="Jizan"> {{myLanguage==='En' ? 'Jizan' : 'جازان'}}</option>
-            <option value="AbuArish">{{myLanguage==='En' ? 'Abu Arish' : "أبو عريـــش"}}</option>
-            <option value="Sabya">{{myLanguage==='En' ? 'Sabya' : 'صبيــــا'}}</option>
-            <option value="SakakaArarDumatalJandal">{{myLanguage==='En' ? 'Sakaka/Arar/Dumat al-Jandal' : "سكاكا/عرعر/دومة الجندل"}}</option>
+            <option value="shubra"> {{myLanguage==='En' ? 'shubra' : 'شبرا'}}</option>
+         
           </select>
           <div>
             <img src="../assets/images/callicon.svg">
@@ -177,15 +170,7 @@
           </div>
         </div>
         <div class="imageBranches imageBranchesAr">
-          <iframe v-if="map=='Jeddah'" class="map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3713.8118573908046!2d39.2026667!3d21.4366389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDI2JzExLjkiTiAzOcKwMTInMDkuNiJF!5e0!3m2!1sen!2seg!4v1713033605594!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='AlQunfudhah'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3769.537400087197!2d41.1164928!3d19.1279397!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033534253!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='Samtah'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713033374528!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='AhadAlMasarihah'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713033374528!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='BishaDarab'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1905.8369430847317!2d42.7489342!3d17.1860678!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033302386!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='Jizan'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d571.0741164058671!2d42.6332942!3d16.8792654!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDUyJzQ2LjkiTiA0MsKwMzgnMDAuOCJF!5e1!3m2!1sen!2seg!4v1713033159347!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='Sabya'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1905.8369430847317!2d42.7489342!3d17.1860678!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033091037!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='AbuArish'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713032989146!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <iframe v-if="map=='SakakaArarDumatalJandal'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1034.193539539082!2d40.2142401!3d29.9488146!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDU2JzU1LjMiTiA0MMKwMTInNDkuOCJF!5e1!3m2!1sen!2seg!4v1713032882533!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe v-if="map=='shubra'" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13811.184010019268!2d31.250243599999997!3d30.071381399999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458406385434489%3A0x8f5991a6319a75cd!2sShubra%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1729432357591!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     <div class="reviews">
@@ -220,15 +205,7 @@
             <p>{{ lannguage.locationHours }}</p>
           </div>
           <div class="imageBranches  fotterLocation">
-              <iframe v-if="map=='Jeddah'" class="map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3713.8118573908046!2d39.2026667!3d21.4366389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDI2JzExLjkiTiAzOcKwMTInMDkuNiJF!5e0!3m2!1sen!2seg!4v1713033605594!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='AlQunfudhah'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3769.537400087197!2d41.1164928!3d19.1279397!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033534253!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='Samtah'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713033374528!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='AhadAlMasarihah'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713033374528!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='BishaDarab'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1905.8369430847317!2d42.7489342!3d17.1860678!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033302386!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='Jizan'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d571.0741164058671!2d42.6332942!3d16.8792654!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDUyJzQ2LjkiTiA0MsKwMzgnMDAuOCJF!5e1!3m2!1sen!2seg!4v1713033159347!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='Sabya'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1905.8369430847317!2d42.7489342!3d17.1860678!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1713033091037!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='AbuArish'" class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d477.03618871726337!2d42.8484732!3d16.9603039!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1607f5f744c372d7%3A0xa9ab8c9922020d1b!2z2KfZhNij2K3Zhdix2Yog2YTZhNi02K3Zhg!5e0!3m2!1sen!2seg!4v1713032989146!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <iframe v-if="map=='SakakaArarDumatalJandal'" class="map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1034.193539539082!2d40.2142401!3d29.9488146!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDU2JzU1LjMiTiA0MMKwMTInNDkuOCJF!5e1!3m2!1sen!2seg!4v1713032882533!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe v-if="map=='shubra'" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13811.184010019268!2d31.250243599999997!3d30.071381399999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458406385434489%3A0x8f5991a6319a75cd!2sShubra%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1729432357591!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         <div>
         <p>{{ lannguage.copyright }}</p>
@@ -322,6 +299,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow-x: hidden;
  
   
 }
@@ -1090,7 +1068,10 @@ export default {
   .contInput[data-lang="Ar"] {
     margin-top:0px;
   }
-  
+  // branch 
+  .textBranches .branches-change {
+    width: 240px;
+  }
 
 // service and catalog => start
 .service,.catalog{
@@ -1126,7 +1107,7 @@ export default {
  }
  // for arabic style
  .footer[data-lang="Ar"] {
-  padding-left: 150px;  
+  padding-left: 100px;  
   
   }
   .footer[data-lang="Ar"]  >div:first-child{

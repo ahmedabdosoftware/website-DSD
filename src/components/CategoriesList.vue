@@ -1,6 +1,6 @@
 <template>
     <div class="categories-list">
-      <CategoryItem v-for="category in categories" :key="category.id" :category="category" />
+      <CategoryItem v-for="category in filteredCategories" :key="category.id" :category="category" />
     </div>
   </template>
   
@@ -15,7 +15,16 @@
       CategoryItem
     },
     computed: {
-      ...mapState(useCategoriesStore, ['categories'])
+      ...mapState(useCategoriesStore, ['categories']),
+
+      filteredCategories() {
+    
+      return this.categories.filter(category =>
+        category.service == 1
+      );
+    },
+
+
     },
     created() {
     this.fetchCategories();
